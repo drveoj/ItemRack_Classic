@@ -145,7 +145,8 @@ ItemRack.TooltipInfo = {
 	{"ItemRackOptToggleInvAll","Toggle All","This will toggle between selecting all slots and selecting no slots."}
 }
 
-
+-- little fixes for Classic
+local UnitCastingInfo = _G.UnitCastingInfo or _G.CastingInfo
 ItemRack.isClassicWow = select(4,GetBuildInfo()) < 20000
 
 ItemRack.BankOpen = nil -- 1 if bank is open, nil if not
