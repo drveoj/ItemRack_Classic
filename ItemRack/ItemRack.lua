@@ -147,7 +147,8 @@ ItemRack.TooltipInfo = {
 
 -- little fixes for Classic
 local UnitCastingInfo = _G.UnitCastingInfo or _G.CastingInfo
-ItemRack.isClassicWow = select(4,GetBuildInfo()) < 20000
+
+ItemRack.isClassicWow = _G.GetExpansionLevel() < 1
 
 ItemRack.BankOpen = nil -- 1 if bank is open, nil if not
 
@@ -1847,7 +1848,9 @@ function ItemRack.SetSetBindings()
 			SetBindingClick(ItemRackUser.Sets[i].key,buttonName)
 		end
 	end
-	SaveBindings(GetCurrentBindingSet())
+	if not ItemRack.isClassicWow then 
+		SaveBindings(GetCurrentBindingSet())
+	end
 end
 
 function ItemRack.RunSetBinding(setname)
